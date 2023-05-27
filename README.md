@@ -1,2 +1,3 @@
 # vividly
-basic back end project using node.js, typescript, express and mongoDB
+
+basic back end project using node.js, express and mongoDB
