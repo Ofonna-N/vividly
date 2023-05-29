@@ -1,16 +1,22 @@
 const express = require("express");
-const moviesDatabase = require("./database/movies");
+const Joi = require("joi");
+Joi.objectId = require("joi-objectid")(Joi);
+//databases
+const vividlyDatabase = require("./database/vividly"); //database
+//app
 const app = express();
 app.use(express.json());
+//routes
 const home = require("./routes/home");
 const genres = require("./routes/genres/genres");
+const movies = require("./routes/movies/movies");
 const port = 4000;
 
 app.listen(port);
 
 app.use("/api", home);
 app.use("/api/genres", genres);
-
+app.use("/api/movies", movies);
 // TODO:Connect to database!
 
-moviesDatabase.Connect();
+vividlyDatabase.Connect();
