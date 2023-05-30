@@ -1,7 +1,10 @@
 const express = require("express");
 const { Genre, validate } = require("./genreModel");
 const router = express.Router();
-
+const auth = require("./../../middleware/auth");
+const admin = require("./../../middleware/admin");
+router.use(auth);
+router.use(admin);
 router.get("/", async (req, res) => {
   const genres = await Genre.find({});
 

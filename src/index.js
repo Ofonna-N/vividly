@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
@@ -22,5 +23,7 @@ app.use("/api/movies", movies);
 app.use("/api/register", register);
 app.use("/api/auth", auth);
 // TODO:Connect to database!
+
+// console.log(process.env.TOKEN_SECRET);
 
 vividlyDatabase.Connect();
