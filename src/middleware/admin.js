@@ -7,6 +7,7 @@ module.exports = function (req, res, next) {
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
     if (decoded.isAdmin) {
       next();
+      //call next middleware
     } else {
       return res.status(400).send("Only Admins can access this resouce");
     }
